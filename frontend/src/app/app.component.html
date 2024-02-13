@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" [routerLink]="['/blogposts']">
+    <img src="..\assets\logo5.jpg" alt="Your Blog" width="90" height="70" class="rounded-circle">
+  </a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link fs-5" [routerLink]="['/blogposts']">Blog Posts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link fs-5" [routerLink]="['/add-post']">Add Post</a>
+      </li>
+    </ul>
+  </div>
+  <form class="d-flex mx-4">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-primary" type="submit">Search</button>
+  </form>
+  <div class="dropdown">
+    <button class="btn btn-secondary profile-button" type="button" id="profileDropdown"
+      data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <img src="..\assets\user3.avif" alt="Profile" width="40" height="40" class="rounded-circle">
+    </button>
+    <div class="dropdown-menu dropdown-menu-end" style="max-width: 200px;" aria-labelledby="profileDropdown">
+      <a class="dropdown-item" [routerLink]="['/profile']">Profile</a>
+      <a class="dropdown-item" (click)="logout()">Logout</a>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>
+
+<footer class="footer mt-auto py-3 bg-light">
+  <div class="container text-center">
+    <div class="social-icons mt-3">
+      <a href="https://www.instagram.com/go_umang" target="_blank" class="btn btn-link"><img src="..\assets\insta-logo.avif" alt="Instagram" width="30" height="30" class="rounded-circle"></a>
+      <a href="https://twitter.com/grumpyalas" target="_blank" class="btn btn-link"><img src="..\assets\twitter.png" alt="Twitter" width="30" height="30" class="rounded-circle"></a>
+      <a href="https://www.facebook.com/umanggoel9599675431/" target="_blank" class="btn btn-link"><img src="..\assets\facebook.png" alt="Facebook" width="30" height="30"></a>
+      <a href="https://www.linkedin.com/in/umang-goel-3b8447236/" target="_blank" class="btn btn-link"><img src="..\assets\linkdin.png" alt="Facebook" width="30" height="30"></a>
+    </div>
+    <span class="text-muted">YourBlog &copy;2024</span>
+  </div>
+</footer>

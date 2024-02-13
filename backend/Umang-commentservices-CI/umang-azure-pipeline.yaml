@@ -1,0 +1,26 @@
+# azure-pipelines.yml
+
+trigger:
+  branches:
+    include:
+      - master  
+
+resources:
+  repositories:
+    - repository: self
+      ref: master
+
+jobs:
+- job: BuildAndPushDockerImage
+  displayName: 'Build and Push Docker Image'
+  pool:
+    vmImage: 'ubuntu-latest'  
+  steps:
+  - task: Docker@2
+    displayName: 'Build and push Docker image'
+    inputs:
+      containerRegistry: 'umang-dockerhub-service-connection' 
+      repository: 'umang2001/blogapplication'  
+      command: 'buildAndPush'
+      Dockerfile: '**/Dockerfile'  
+      tags: 'commentimage'

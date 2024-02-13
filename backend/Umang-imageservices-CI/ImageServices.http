@@ -1,0 +1,6 @@
+@ImageServices_HostAddress = http://localhost:5025
+
+GET {{ImageServices_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

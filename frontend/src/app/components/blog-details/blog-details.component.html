@@ -1,0 +1,48 @@
+<div class="container mt-4">
+  <div class="card">
+    <img [src]="featuredImageUrl" class="card-img-top blog-post-image" alt="Featured Image">
+    <div class="card-body">
+      <h2 class="card-title">{{ blogPost.title }}</h2>
+      <p class="card-text">{{ blogPost.shortDescription }}</p>
+      <p class="card-text">{{ blogPost.content }}</p>
+      <p class="card-text">
+        <small class="text-muted">
+          Published by: {{ blogPost.author }} on {{ blogPost.publishedDate | date }}
+        </small>
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary" [routerLink]="['/blogposts']">Back to Blog Posts</button>
+      <button class="btn btn-primary mr-2" (click)="viewComments()">View Comments</button>
+      <button class="btn btn-primary mr-2" (click)="toggleAddCommentForm()">Add Comment</button>
+    </div>
+  </div>
+  <div *ngIf="showAddCommentForm" class="add-comment-form">
+    <form [formGroup]="commentForm" (ngSubmit)="submitComment()">
+      <div class="form-group">
+        <label for="commentText">Comment:</label>
+        <textarea id="commentText" formControlName="commentText" class="form-control"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="userEmail"></label>
+        <input type="email" id="userEmail" formControlName="userEmail" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="Name"></label>
+        <input type="text" id="Name" formControlName="Name" class="form-control">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+<div *ngIf="showComments" class="container mt-4">
+  <h3>Comments</h3>
+  <div class="comments-list">
+    <div *ngFor="let comment of comments" class="comment">
+      <div class="comment-header">
+        <h5 class="comment-user">{{ comment.name }}</h5>
+      </div>
+      <p class="comment-text">{{ comment.commentText }}</p>
+    </div>
+  </div>
+</div>

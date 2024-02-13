@@ -1,0 +1,25 @@
+name: Umang-postgres-CD
+
+trigger:
+  branches:
+    include:
+      - master  
+
+resources:
+  repositories:
+    - repository: self
+      ref: master
+
+jobs:
+- job: DeployToKubernetes
+  displayName: 'Deploy to Kubernetes'
+  pool:
+    vmImage: 'ubuntu-latest'  
+  steps:
+  - task: KubernetesManifest@0
+    inputs:
+      connectionType: 'Kubernetes Service Connection'
+      kubernetesServiceConnection: 'umang-azure-k8s-service-connection'
+      namespace: 'default'
+      manifests: |
+        deployment-service.yaml

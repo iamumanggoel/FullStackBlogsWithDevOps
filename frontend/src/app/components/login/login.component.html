@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="registration-heading">
+      <h2>Login</h2>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" formControlName="email" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <div class="password-input">
+          <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password" class="form-control" />
+          <span class="toggle-password" (click)="togglePasswordVisibility()">
+            {{ showPassword ? 'Hide' : 'Show' }}
+          </span>
+        </div>
+      </div>
+      <div class="error-message" *ngIf="showErrorMessage">Invalid Credentials. Please try again</div>
+      <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Log in</button>
+    </form>
+  
+    <div class="signup-box">
+      <p class="signup-message">Don't have an account? <a (click)="navigateToRegister()">Sign Up</a></p>
+    </div>
+  </div>
+  

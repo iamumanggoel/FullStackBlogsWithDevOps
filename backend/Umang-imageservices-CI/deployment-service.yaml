@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: imageservices
+spec:
+  selector:
+    app: imageservices
+  ports:
+    - protocol: TCP
+      port: 8083
+      targetPort: 8080
+  type: ClusterIP 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: imageservices
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: imageservices
+  template:
+    metadata:
+      labels:
+        app: imageservices
+    spec:
+      containers:
+        - name: imageservices
+          image: umang2001/blogapplication:imageimage
+          ports:
+            - containerPort: 8080
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Development

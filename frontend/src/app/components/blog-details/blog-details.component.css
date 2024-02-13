@@ -1,0 +1,106 @@
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.blog-post-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.text-muted {
+    color: #666;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.comments-list {
+    margin-top: 20px;
+  }
+  
+  .comment {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .comment-header {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .comment-user {
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  .comment-date {
+    color: #666;
+  }
+  
+  .comment-text {
+    margin-top: 5px;
+  }
+  
+ #Name {
+    display: none;
+ }
+
+  #userEmail {
+    display: none;
+  }
+  
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.card-footer button {
+    padding: 10px 20px; 
+}
+
+.card-footer button:not(:last-child) {
+    margin-right: 10px; 
+}

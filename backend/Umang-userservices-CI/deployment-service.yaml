@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: userservices
+spec:
+  selector:
+    app: userservices
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP   
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: userservices
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: userservices
+  template:
+    metadata:
+      labels:
+        app: userservices
+    spec:
+      containers:
+        - name: userservices
+          image: umang2001/blogapplication:userimage
+          ports:
+            - containerPort: 8080
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Development
+

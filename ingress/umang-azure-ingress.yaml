@@ -1,0 +1,17 @@
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include:
+      - 'ingressrules.yaml'
+
+steps:
+- task: KubernetesManifest@0
+  displayName: Deploy
+  inputs:
+    kubernetesServiceConnection: umang-azure-k8s-service-connection
+    namespace: default
+    manifests: |
+      ingressrules.yml
+
